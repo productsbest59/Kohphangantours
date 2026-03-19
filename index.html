@@ -5,22 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koh Phangan Tours</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-overlay-1: rgba(0, 25, 45, 0.45);
+      --bg-overlay-2: rgba(0, 25, 45, 0.58);
+      --text-main: white;
+      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-text: #1d2b38;
+      --muted: #4c5d6b;
+      --accent-a: #ff6a3d;
+      --accent-b: #ff3d68;
+      --header-a: #17324d;
+      --header-b: #295b7a;
+      --access-bg: rgba(255,255,255,0.97);
+      --access-text: #12202d;
     }
 
     body {
       font-family: Arial, sans-serif;
-      color: white;
+      color: var(--text-main);
       background:
-        linear-gradient(rgba(0, 25, 45, 0.45), rgba(0, 25, 45, 0.55)),
+        linear-gradient(var(--bg-overlay-1), var(--bg-overlay-2)),
         url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
+      transition: background 0.25s ease, color 0.25s ease;
+    }
+
+    body.high-contrast {
+      --bg-overlay-1: rgba(0, 0, 0, 0.8);
+      --bg-overlay-2: rgba(0, 0, 0, 0.88);
+      --text-main: #ffffff;
+      --card-bg: #ffffff;
+      --card-text: #000000;
+      --muted: #111111;
+      --accent-a: #000000;
+      --accent-b: #333333;
+      --header-a: #000000;
+      --header-b: #222222;
+      --access-bg: #ffffff;
+      --access-text: #000000;
+    }
+
+    body.large-text {
+      font-size: 19px;
+    }
+
+    body.large-text h1 { font-size: 62px; }
+    body.large-text .hero p { font-size: 26px; }
+    body.large-text .card h2 { font-size: 34px; }
+    body.large-text .card p,
+    body.large-text .info-strip,
+    body.large-text .chat-body input,
+    body.large-text .chat-body textarea,
+    body.large-text .send-btn,
+    body.large-text .email-btn,
+    body.large-text .access-btn,
+    body.large-text .access-item {
+      font-size: 18px;
+    }
+
+    body.highlight-links a {
+      text-decoration: underline !important;
+      font-weight: bold !important;
+      box-shadow: 0 0 0 3px rgba(255,255,0,0.35);
+    }
+
+    body.reduce-motion *,
+    body.reduce-motion *::before,
+    body.reduce-motion *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
     }
 
     .container {
@@ -71,8 +130,8 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.92);
-      color: #1d2b38;
+      background: var(--card-bg);
+      color: var(--card-text);
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 14px 35px rgba(0,0,0,0.18);
@@ -114,7 +173,7 @@
 
     .card p {
       font-size: 18px;
-      color: #4c5d6b;
+      color: var(--muted);
       margin-bottom: 22px;
       line-height: 1.5;
     }
@@ -128,7 +187,7 @@
 
     .button {
       display: inline-block;
-      background: linear-gradient(135deg, #ff6a3d, #ff3d68);
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
       color: white;
       text-decoration: none;
       padding: 14px 24px;
@@ -163,17 +222,214 @@
       color: rgba(255,255,255,0.85);
     }
 
+    .chat-toggle,
+    .access-toggle {
+      position: fixed;
+      right: 22px;
+      width: 64px;
+      height: 64px;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+      z-index: 9999;
+    }
+
+    .chat-toggle {
+      bottom: 22px;
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+    }
+
+    .access-toggle {
+      bottom: 98px;
+      background: linear-gradient(135deg, #1b4b6b, #2e7aa8);
+      font-size: 30px;
+    }
+
+    .chat-box,
+    .access-box {
+      position: fixed;
+      right: 22px;
+      width: 360px;
+      max-width: calc(100vw - 24px);
+      border-radius: 20px;
+      overflow: hidden;
+      z-index: 9999;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+      display: none;
+    }
+
+    .chat-box {
+      bottom: 98px;
+      background: rgba(255,255,255,0.97);
+      color: #1d2b38;
+    }
+
+    .access-box {
+      bottom: 174px;
+      background: var(--access-bg);
+      color: var(--access-text);
+    }
+
+    .chat-box.open,
+    .access-box.open {
+      display: block;
+    }
+
+    .chat-header,
+    .access-header {
+      background: linear-gradient(135deg, var(--header-a), var(--header-b));
+      color: white;
+      padding: 18px;
+    }
+
+    .chat-header h3,
+    .access-header h3 {
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .chat-header p,
+    .access-header p {
+      font-size: 14px;
+      opacity: 0.92;
+    }
+
+    .chat-body,
+    .access-body {
+      padding: 18px;
+    }
+
+    .chat-bubble {
+      background: #eef5fb;
+      color: #17324d;
+      padding: 12px 14px;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .chat-body form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chat-body input,
+    .chat-body textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d8dee6;
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .chat-body textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .chat-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+      flex-wrap: wrap;
+    }
+
+    .send-btn,
+    .email-btn,
+    .access-btn {
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 15px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .send-btn {
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      color: white;
+      flex: 1;
+    }
+
+    .email-btn {
+      background: #eef3f8;
+      color: #17324d;
+      flex: 1;
+    }
+
+    .chat-note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #5c6b77;
+      line-height: 1.5;
+    }
+
+    .access-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .access-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #f4f7fa;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-size: 15px;
+      color: #12202d;
+    }
+
+    .access-item button {
+      border: none;
+      background: linear-gradient(135deg, #1b4b6b, #2e7aa8);
+      color: white;
+      padding: 9px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .access-reset {
+      margin-top: 14px;
+      width: 100%;
+      background: linear-gradient(135deg, #ff6a3d, #ff3d68);
+      color: white;
+    }
+
     @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 38px;
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 18px; }
+      .card h2 { font-size: 26px; }
+
+      .chat-box,
+      .access-box {
+        right: 12px;
+        left: 12px;
+        width: auto;
       }
 
-      .hero p {
-        font-size: 18px;
+      .chat-box { bottom: 90px; }
+      .access-box { bottom: 166px; }
+
+      .chat-toggle {
+        right: 12px;
+        bottom: 12px;
       }
 
-      .card h2 {
-        font-size: 26px;
+      .access-toggle {
+        right: 12px;
+        bottom: 86px;
       }
     }
   </style>
@@ -229,5 +485,123 @@
       © 2026 Koh Phangan Tours
     </div>
   </div>
+
+  <button class="access-toggle" onclick="toggleAccess()" aria-label="Accessibility options">♿</button>
+  <button class="chat-toggle" onclick="toggleChat()" aria-label="Open chat">💬</button>
+
+  <div class="access-box" id="accessBox">
+    <div class="access-header">
+      <h3>Accessibility</h3>
+      <p>Quick accessibility tools for easier browsing</p>
+    </div>
+    <div class="access-body">
+      <div class="access-list">
+        <div class="access-item">
+          <span>Increase text size</span>
+          <button onclick="toggleLargeText()">On / Off</button>
+        </div>
+        <div class="access-item">
+          <span>High contrast</span>
+          <button onclick="toggleContrast()">On / Off</button>
+        </div>
+        <div class="access-item">
+          <span>Highlight links</span>
+          <button onclick="toggleLinks()">On / Off</button>
+        </div>
+        <div class="access-item">
+          <span>Reduce motion</span>
+          <button onclick="toggleMotion()">On / Off</button>
+        </div>
+      </div>
+      <button class="access-btn access-reset" onclick="resetAccessibility()">Reset Accessibility</button>
+    </div>
+  </div>
+
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <h3>Contact Us</h3>
+      <p>Send us a message and we’ll get back to you by email.</p>
+    </div>
+
+    <div class="chat-body">
+      <div class="chat-bubble">
+        Hi! Need help booking a tour in Koh Phangan? Send us a message below.
+      </div>
+
+      <form action="YOUR_FORMSPREE_URL" method="POST">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Your message" required></textarea>
+
+        <input type="hidden" name="_subject" value="New message from Koh Phangan Tours website">
+
+        <div class="chat-actions">
+          <button class="send-btn" type="submit">Send Message</button>
+          <a class="email-btn" href="mailto:info@kohphangantours.com">Email Directly</a>
+        </div>
+
+        <div class="chat-note">
+          Messages from this form can arrive directly to: info@kohphangantours.com
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      document.getElementById("chatBox").classList.toggle("open");
+    }
+
+    function toggleAccess() {
+      document.getElementById("accessBox").classList.toggle("open");
+    }
+
+    function toggleLargeText() {
+      document.body.classList.toggle("large-text");
+      localStorage.setItem("large-text", document.body.classList.contains("large-text"));
+    }
+
+    function toggleContrast() {
+      document.body.classList.toggle("high-contrast");
+      localStorage.setItem("high-contrast", document.body.classList.contains("high-contrast"));
+    }
+
+    function toggleLinks() {
+      document.body.classList.toggle("highlight-links");
+      localStorage.setItem("highlight-links", document.body.classList.contains("highlight-links"));
+    }
+
+    function toggleMotion() {
+      document.body.classList.toggle("reduce-motion");
+      localStorage.setItem("reduce-motion", document.body.classList.contains("reduce-motion"));
+    }
+
+    function resetAccessibility() {
+      document.body.classList.remove("large-text", "high-contrast", "highlight-links", "reduce-motion");
+      localStorage.removeItem("large-text");
+      localStorage.removeItem("high-contrast");
+      localStorage.removeItem("highlight-links");
+      localStorage.removeItem("reduce-motion");
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem("large-text") === "true") {
+        document.body.classList.add("large-text");
+      }
+      if (localStorage.getItem("high-contrast") === "true") {
+        document.body.classList.add("high-contrast");
+      }
+      if (localStorage.getItem("highlight-links") === "true") {
+        document.body.classList.add("highlight-links");
+      }
+      if (localStorage.getItem("reduce-motion") === "true") {
+        document.body.classList.add("reduce-motion");
+      }
+
+      setTimeout(() => {
+        document.getElementById("chatBox").classList.add("open");
+      }, 2000);
+    };
+  </script>
 </body>
 </html>
