@@ -6,121 +6,152 @@
 <title>Koh Phangan Tours</title>
 
 <style>
-body {
-  margin:0;
-  font-family: Arial;
-  background:#0b1c2c;
-  color:white;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
+
+body{
+background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)),
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+background-size:cover;
+color:white;
 }
 
-.container {
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
+/* HERO */
+.hero{
+text-align:center;
+padding:40px;
 }
 
-.hero {
-  text-align:center;
-  padding:40px 20px;
+.hero img{
+width:100%;
+max-height:320px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
 }
 
-.hero img {
-  width:100%;
-  max-height:320px;
-  object-fit:cover;
-  border-radius:20px;
-  margin-bottom:20px;
+.hero h1{
+font-size:48px;
+margin-bottom:10px;
 }
 
-h1 {
-  font-size:48px;
+/* COUNTDOWN */
+.countdown{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:20px;
+margin-top:20px;
 }
 
-.ad-banner {
-  background:linear-gradient(45deg,#ff6a3d,#ff3d68);
-  padding:20px;
-  border-radius:20px;
-  margin-top:20px;
+.time{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:10px;
 }
 
-.ad-banner h2 {
-  font-size:32px;
+.box{
+background:black;
+padding:15px;
+border-radius:10px;
 }
 
-.card {
-  background:white;
-  color:black;
-  border-radius:20px;
-  margin:20px 0;
-  overflow:hidden;
+.box span{
+font-size:24px;
+display:block;
 }
 
-.card img {
-  width:100%;
-  height:180px;
-  object-fit:cover;
+/* AD */
+.ad{
+background:linear-gradient(45deg,#ff6a3d,#ff3d68);
+padding:20px;
+border-radius:20px;
+margin-top:20px;
+text-align:center;
 }
 
-.card-content {
-  padding:20px;
-  text-align:center;
+/* CARDS */
+.card{
+background:white;
+color:black;
+border-radius:20px;
+margin:20px;
+overflow:hidden;
 }
 
-.button {
-  display:inline-block;
-  margin-top:10px;
-  padding:12px 20px;
-  background:#ff3d68;
-  color:white;
-  text-decoration:none;
-  border-radius:10px;
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
 }
 
-.chat {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:white;
-  color:black;
-  width:300px;
-  border-radius:15px;
-  display:none;
-  padding:15px;
+.card-content{
+padding:20px;
+text-align:center;
 }
 
-.chat.open {
-  display:block;
+.btn{
+background:#ff3d68;
+color:white;
+padding:10px 20px;
+display:inline-block;
+margin-top:10px;
+border-radius:10px;
+text-decoration:none;
 }
 
-.chat-toggle {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#ff3d68;
-  color:white;
-  border:none;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  font-size:24px;
+/* CHAT */
+.chat{
+position:fixed;
+bottom:90px;
+right:20px;
+background:white;
+color:black;
+padding:15px;
+border-radius:15px;
+display:none;
+width:300px;
+}
+
+.chat.open{display:block;}
+
+.chat-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff3d68;
+color:white;
+border:none;
+width:60px;
+height:60px;
+border-radius:50%;
+font-size:24px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="hero">
 
-<section class="hero">
-
-<!-- התמונה שלך -->
 <img src="https://raw.githubusercontent.com/productsbest59/Kohphangantours/main/thai-women.jpg">
 
 <h1>🌴 Koh Phangan Tours</h1>
-<p>Best tours & experiences in Thailand</p>
+<p>Best tours in Thailand</p>
 
-<!-- באנר -->
-<div class="ad-banner">
+<!-- COUNTDOWN -->
+<div class="countdown">
+<h2>Full Moon Countdown</h2>
+
+<div class="time">
+<div class="box"><span id="d">0</span>Days</div>
+<div class="box"><span id="h">0</span>Hours</div>
+<div class="box"><span id="m">0</span>Min</div>
+<div class="box"><span id="s">0</span>Sec</div>
+</div>
+</div>
+
+<!-- AD -->
+<div class="ad">
 <h2>This Ad Space Could Be Yours</h2>
 <p>
 Promote your business here and reach travelers looking for the best experiences<br>
@@ -128,23 +159,23 @@ For more info Mail to <b>info@kohphangantours.com</b>
 </p>
 </div>
 
-</section>
+</div>
 
-<!-- טיולים -->
+<!-- TOURS -->
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329">
 <div class="card-content">
 <h2>Full Moon Party</h2>
-<a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank">Book Now</a>
+<a class="btn" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank">Book</a>
 </div>
 </div>
 
 <div class="card">
 <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19">
 <div class="card-content">
-<h2>Snorkeling Tour</h2>
-<a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank">Book Now</a>
+<h2>Snorkeling</h2>
+<a class="btn" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank">Book</a>
 </div>
 </div>
 
@@ -152,28 +183,46 @@ For more info Mail to <b>info@kohphangantours.com</b>
 <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e">
 <div class="card-content">
 <h2>ATV Jungle</h2>
-<a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank">Book Now</a>
+<a class="btn" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank">Book</a>
 </div>
 </div>
 
-</div>
-
-<!-- צאט -->
+<!-- CHAT -->
 <div id="chat" class="chat">
 <form action="https://formspree.io/f/mwvrybyd" method="POST">
-<input type="text" name="name" placeholder="Name" required><br><br>
-<input type="email" name="email" placeholder="Email" required><br><br>
-<textarea name="message" placeholder="Message" required></textarea><br><br>
-<button type="submit">Send</button>
+<input type="text" name="name" placeholder="Name"><br><br>
+<input type="email" name="email" placeholder="Email"><br><br>
+<textarea name="message" placeholder="Message"></textarea><br><br>
+<button>Send</button>
 </form>
 </div>
 
-<button class="chat-toggle" onclick="toggleChat()">💬</button>
+<button class="chat-btn" onclick="toggleChat()">💬</button>
 
 <script>
+// CHAT
 function toggleChat(){
-  document.getElementById("chat").classList.toggle("open");
+document.getElementById("chat").classList.toggle("open");
 }
+
+// COUNTDOWN
+let target=new Date("2026-04-02").getTime();
+
+setInterval(()=>{
+let now=new Date().getTime();
+let diff=target-now;
+
+let d=Math.floor(diff/(1000*60*60*24));
+let h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+let m=Math.floor((diff%(1000*60*60))/(1000*60));
+let s=Math.floor((diff%(1000*60))/1000);
+
+document.getElementById("d").innerHTML=d;
+document.getElementById("h").innerHTML=h;
+document.getElementById("m").innerHTML=m;
+document.getElementById("s").innerHTML=s;
+
+},1000);
 </script>
 
 </body>
