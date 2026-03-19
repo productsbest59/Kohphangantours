@@ -1,84 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Koh Phangan Tours</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --bg-overlay-1: rgba(0, 25, 45, 0.45);
-      --bg-overlay-2: rgba(0, 25, 45, 0.58);
-      --text-main: white;
-      --card-bg: rgba(255, 255, 255, 0.94);
-      --card-text: #1d2b38;
-      --muted: #4c5d6b;
-      --accent-a: #ff6a3d;
-      --accent-b: #ff3d68;
-      --header-a: #17324d;
-      --header-b: #295b7a;
-      --access-bg: rgba(255,255,255,0.97);
-      --access-text: #12202d;
+      --accent1: #ff6a3d;
+      --accent2: #ff3d68;
+      --dark1: #17324d;
+      --dark2: #295b7a;
     }
 
     body {
       font-family: Arial, sans-serif;
-      color: var(--text-main);
+      color: white;
       background:
-        linear-gradient(var(--bg-overlay-1), var(--bg-overlay-2)),
+        linear-gradient(rgba(0, 25, 45, 0.45), rgba(0, 25, 45, 0.58)),
         url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
-      transition: background 0.25s ease, color 0.25s ease;
     }
 
     body.high-contrast {
-      --bg-overlay-1: rgba(0, 0, 0, 0.8);
-      --bg-overlay-2: rgba(0, 0, 0, 0.88);
-      --text-main: #ffffff;
-      --card-bg: #ffffff;
-      --card-text: #000000;
-      --muted: #111111;
-      --accent-a: #000000;
-      --accent-b: #333333;
-      --header-a: #000000;
-      --header-b: #222222;
-      --access-bg: #ffffff;
-      --access-text: #000000;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.9)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     body.large-text {
       font-size: 19px;
     }
 
-    body.large-text h1 { font-size: 62px; }
-    body.large-text .hero p { font-size: 26px; }
-    body.large-text .card h2 { font-size: 34px; }
-    body.large-text .card p,
-    body.large-text .info-strip,
-    body.large-text .chat-body input,
-    body.large-text .chat-body textarea,
-    body.large-text .send-btn,
-    body.large-text .email-btn,
-    body.large-text .access-btn,
-    body.large-text .access-item {
-      font-size: 18px;
-    }
-
     body.highlight-links a {
       text-decoration: underline !important;
       font-weight: bold !important;
-      box-shadow: 0 0 0 3px rgba(255,255,0,0.35);
     }
 
-    body.reduce-motion *,
-    body.reduce-motion *::before,
-    body.reduce-motion *::after {
-      animation: none !important;
+    body.reduce-motion * {
       transition: none !important;
+      animation: none !important;
       scroll-behavior: auto !important;
     }
 
@@ -130,8 +102,8 @@
     }
 
     .card {
-      background: var(--card-bg);
-      color: var(--card-text);
+      background: rgba(255, 255, 255, 0.94);
+      color: #1d2b38;
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 14px 35px rgba(0,0,0,0.18);
@@ -173,7 +145,7 @@
 
     .card p {
       font-size: 18px;
-      color: var(--muted);
+      color: #4c5d6b;
       margin-bottom: 22px;
       line-height: 1.5;
     }
@@ -187,7 +159,7 @@
 
     .button {
       display: inline-block;
-      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
       color: white;
       text-decoration: none;
       padding: 14px 24px;
@@ -239,13 +211,12 @@
 
     .chat-toggle {
       bottom: 22px;
-      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
     }
 
     .access-toggle {
       bottom: 98px;
       background: linear-gradient(135deg, #1b4b6b, #2e7aa8);
-      font-size: 30px;
     }
 
     .chat-box,
@@ -269,8 +240,8 @@
 
     .access-box {
       bottom: 174px;
-      background: var(--access-bg);
-      color: var(--access-text);
+      background: rgba(255,255,255,0.97);
+      color: #12202d;
     }
 
     .chat-box.open,
@@ -280,7 +251,7 @@
 
     .chat-header,
     .access-header {
-      background: linear-gradient(135deg, var(--header-a), var(--header-b));
+      background: linear-gradient(135deg, var(--dark1), var(--dark2));
       color: white;
       padding: 18px;
     }
@@ -336,13 +307,13 @@
     .chat-actions {
       display: flex;
       gap: 10px;
-      margin-top: 6px;
       flex-wrap: wrap;
     }
 
     .send-btn,
     .email-btn,
-    .access-btn {
+    .access-btn,
+    .access-item button {
       border: none;
       text-decoration: none;
       cursor: pointer;
@@ -355,7 +326,7 @@
     }
 
     .send-btn {
-      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
       color: white;
       flex: 1;
     }
@@ -391,19 +362,14 @@
     }
 
     .access-item button {
-      border: none;
       background: linear-gradient(135deg, #1b4b6b, #2e7aa8);
       color: white;
-      padding: 9px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
     }
 
     .access-reset {
       margin-top: 14px;
       width: 100%;
-      background: linear-gradient(135deg, #ff6a3d, #ff3d68);
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
       color: white;
     }
 
@@ -438,7 +404,7 @@
   <div class="container">
     <section class="hero">
       <h1>🌴 Koh Phangan Tours</h1>
-      <p>Discover the best boat trips, snorkeling adventures & island experiences</p>
+      <p>Discover the best boat trips, snorkeling adventures and island experiences</p>
       <div class="hero-badge">Top island tours • Easy booking • Amazing experiences</div>
     </section>
 
@@ -460,7 +426,7 @@
         <div class="card-content">
           <h2>🐠 Snorkeling Tour</h2>
           <p>Explore crystal-clear waters, coral reefs and hidden beaches around Koh Phangan.</p>
-          <div class="price">Perfect for beach & sea lovers</div>
+          <div class="price">Perfect for beach and sea lovers</div>
           <a class="button" href="#">🌊 Check Availability</a>
         </div>
       </div>
@@ -498,29 +464,29 @@
       <div class="access-list">
         <div class="access-item">
           <span>Increase text size</span>
-          <button onclick="toggleLargeText()">On / Off</button>
+          <button type="button" onclick="toggleLargeText()">On / Off</button>
         </div>
         <div class="access-item">
           <span>High contrast</span>
-          <button onclick="toggleContrast()">On / Off</button>
+          <button type="button" onclick="toggleContrast()">On / Off</button>
         </div>
         <div class="access-item">
           <span>Highlight links</span>
-          <button onclick="toggleLinks()">On / Off</button>
+          <button type="button" onclick="toggleLinks()">On / Off</button>
         </div>
         <div class="access-item">
           <span>Reduce motion</span>
-          <button onclick="toggleMotion()">On / Off</button>
+          <button type="button" onclick="toggleMotion()">On / Off</button>
         </div>
       </div>
-      <button class="access-btn access-reset" onclick="resetAccessibility()">Reset Accessibility</button>
+      <button type="button" class="access-btn access-reset" onclick="resetAccessibility()">Reset Accessibility</button>
     </div>
   </div>
 
   <div class="chat-box" id="chatBox">
     <div class="chat-header">
       <h3>Contact Us</h3>
-      <p>Send us a message and we’ll get back to you by email.</p>
+      <p>Send us a message and we will get back to you by email.</p>
     </div>
 
     <div class="chat-body">
@@ -532,7 +498,6 @@
         <input type="text" name="name" placeholder="Your name" required>
         <input type="email" name="email" placeholder="Your email" required>
         <textarea name="message" placeholder="Your message" required></textarea>
-
         <input type="hidden" name="_subject" value="New message from Koh Phangan Tours website">
 
         <div class="chat-actions">
@@ -584,7 +549,7 @@
       localStorage.removeItem("reduce-motion");
     }
 
-    window.onload = function () {
+    window.addEventListener("load", function () {
       if (localStorage.getItem("large-text") === "true") {
         document.body.classList.add("large-text");
       }
@@ -598,10 +563,13 @@
         document.body.classList.add("reduce-motion");
       }
 
-      setTimeout(() => {
-        document.getElementById("chatBox").classList.add("open");
+      setTimeout(function () {
+        var chat = document.getElementById("chatBox");
+        if (chat) {
+          chat.classList.add("open");
+        }
       }, 2000);
-    };
+    });
   </script>
 </body>
 </html>
