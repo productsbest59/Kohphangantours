@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koh Phangan Tours</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Koh Phangan Tours | Full Moon Party, Snorkeling & Island Trips</title>
+  <meta name="description" content="Book the best Koh Phangan tours, Full Moon Party experiences, snorkeling trips, sunset cruises and island adventures. Easy booking and unforgettable experiences." />
+  <meta name="keywords" content="Koh Phangan tours, Full Moon Party, snorkeling Koh Phangan, sunset cruise, island tours Thailand, Ang Thong marine park, Koh Phangan excursions" />
+  <meta name="author" content="Koh Phangan Tours" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://kohphangantours.com/" />
+
+  <meta property="og:title" content="Koh Phangan Tours | Best Island Experiences" />
+  <meta property="og:description" content="Discover top Koh Phangan tours, Full Moon Party trips, snorkeling adventures and unforgettable island experiences." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kohphangantours.com/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/productsbest59/Kohphangantours/6e99179066c54bd2092d1d3bb0108abb00a8aeea/4A0D7D68-16E9-4301-93D4-5569195DC8BC.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Koh Phangan Tours | Best Island Experiences" />
+  <meta name="twitter:description" content="Book Full Moon Party tours, snorkeling trips, marine park adventures and more in Koh Phangan." />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/productsbest59/Kohphangantours/6e99179066c54bd2092d1d3bb0108abb00a8aeea/4A0D7D68-16E9-4301-93D4-5569195DC8BC.png" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -17,7 +35,10 @@
       --accent2: #ff3d68;
       --dark1: #17324d;
       --dark2: #295b7a;
-      --white-card: rgba(255,255,255,0.94);
+      --white-card: rgba(255,255,255,0.95);
+      --text-dark: #1d2b38;
+      --muted: #4c5d6b;
+      --success: #159947;
     }
 
     body {
@@ -30,6 +51,11 @@
       background-position: center;
       background-attachment: fixed;
       min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     header {
@@ -62,6 +88,7 @@
       display: flex;
       gap: 18px;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     .nav-links a {
@@ -77,10 +104,14 @@
       background: rgba(255,255,255,0.12);
     }
 
+    .nav-book {
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+    }
+
     .container {
       max-width: 1150px;
       margin: 0 auto;
-      padding: 30px 20px 70px;
+      padding: 30px 20px 90px;
     }
 
     .hero {
@@ -89,7 +120,6 @@
     }
 
     .hero-image {
-      display: block;
       width: 100%;
       max-width: 720px;
       margin: 0 auto 24px;
@@ -117,6 +147,15 @@
       padding: 10px 18px;
       border-radius: 999px;
       font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
     }
 
     .countdown-wrap {
@@ -177,6 +216,23 @@
       letter-spacing: 1px;
     }
 
+    .trust-bar {
+      max-width: 950px;
+      margin: 22px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 16px;
+      padding: 14px 12px;
+      text-align: center;
+      font-size: 15px;
+    }
+
     .ad-banner {
       max-width: 900px;
       margin: 24px auto 0;
@@ -189,7 +245,7 @@
     }
 
     .ad-banner h3 {
-      font-size: 36px;
+      font-size: 34px;
       margin-bottom: 10px;
     }
 
@@ -216,9 +272,9 @@
       gap: 24px;
     }
 
-    .card, .content-box, .review-card {
+    .card, .content-box, .review-card, .lead-box {
       background: var(--white-card);
-      color: #1d2b38;
+      color: var(--text-dark);
       border-radius: 22px;
       overflow: hidden;
       box-shadow: 0 14px 35px rgba(0,0,0,0.18);
@@ -226,6 +282,9 @@
 
     .card {
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .card:hover {
@@ -266,16 +325,19 @@
     .card-content {
       padding: 24px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .card h2 {
-      font-size: 30px;
+      font-size: 28px;
       margin-bottom: 12px;
     }
 
-    .card p, .content-box p {
-      font-size: 18px;
-      color: #4c5d6b;
+    .card p, .content-box p, .lead-box p {
+      font-size: 17px;
+      color: var(--muted);
       line-height: 1.6;
     }
 
@@ -293,7 +355,7 @@
       text-decoration: none;
       padding: 14px 24px;
       border-radius: 12px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
       border: none;
       cursor: pointer;
@@ -305,11 +367,24 @@
       opacity: 0.95;
     }
 
+    .button-outline {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,0.22);
+      cursor: pointer;
+    }
+
     .content-box {
       padding: 28px;
     }
 
-    .content-box h3 {
+    .content-box h3, .lead-box h3 {
       font-size: 24px;
       margin-bottom: 14px;
       color: #17324d;
@@ -317,6 +392,36 @@
 
     .content-box p + p {
       margin-top: 14px;
+    }
+
+    .lead-section {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .lead-box {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .lead-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .lead-form input {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #d4dbe3;
+      font-size: 15px;
+    }
+
+    .lead-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .reviews-note {
@@ -353,7 +458,7 @@
     }
 
     .review-card p {
-      color: #4c5d6b;
+      color: var(--muted);
       line-height: 1.6;
       font-size: 16px;
     }
@@ -362,6 +467,31 @@
       margin-top: 14px;
       font-weight: bold;
       color: #17324d;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--white-card);
+      color: var(--text-dark);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.14);
+    }
+
+    .faq-item h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #17324d;
+    }
+
+    .faq-item p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
     }
 
     .contact-actions {
@@ -391,18 +521,23 @@
     }
 
     .chat-toggle,
-    .access-toggle {
+    .access-toggle,
+    .sticky-book-btn {
       position: fixed;
       right: 22px;
-      width: 64px;
-      height: 64px;
       border: none;
-      border-radius: 50%;
       color: white;
-      font-size: 28px;
       cursor: pointer;
       box-shadow: 0 12px 24px rgba(0,0,0,0.25);
       z-index: 9999;
+    }
+
+    .chat-toggle,
+    .access-toggle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      font-size: 28px;
     }
 
     .chat-toggle {
@@ -415,8 +550,19 @@
       background: linear-gradient(135deg, #1b4b6b, #2e7aa8);
     }
 
+    .sticky-book-btn {
+      bottom: 174px;
+      border-radius: 999px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #12b76a, #1a9c58);
+      text-decoration: none;
+    }
+
     .chat-box,
-    .access-box {
+    .access-box,
+    .promo-popup {
       position: fixed;
       right: 22px;
       width: 360px;
@@ -435,37 +581,62 @@
     }
 
     .access-box {
-      bottom: 174px;
+      bottom: 250px;
       background: rgba(255,255,255,0.97);
       color: #12202d;
     }
 
+    .promo-popup {
+      left: 50%;
+      right: auto;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 460px;
+      max-width: calc(100vw - 24px);
+      background: rgba(255,255,255,0.98);
+      color: var(--text-dark);
+    }
+
+    .promo-popup.open,
     .chat-box.open,
-    .access-box.open {
+    .access-box.open,
+    .overlay.open {
       display: block;
     }
 
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 9998;
+      display: none;
+    }
+
     .chat-header,
-    .access-header {
+    .access-header,
+    .promo-header {
       background: linear-gradient(135deg, var(--dark1), var(--dark2));
       color: white;
       padding: 18px;
     }
 
     .chat-header h3,
-    .access-header h3 {
+    .access-header h3,
+    .promo-header h3 {
       font-size: 22px;
       margin-bottom: 6px;
     }
 
     .chat-header p,
-    .access-header p {
+    .access-header p,
+    .promo-header p {
       font-size: 14px;
       opacity: 0.92;
     }
 
     .chat-body,
-    .access-body {
+    .access-body,
+    .promo-body {
       padding: 18px;
     }
 
@@ -479,14 +650,16 @@
       line-height: 1.5;
     }
 
-    .chat-body form {
+    .chat-body form,
+    .promo-body form {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
     .chat-body input,
-    .chat-body textarea {
+    .chat-body textarea,
+    .promo-body input {
       width: 100%;
       padding: 13px 14px;
       border: 1px solid #d8dee6;
@@ -509,7 +682,9 @@
     .send-btn,
     .email-btn,
     .access-btn,
-    .access-item button {
+    .access-item button,
+    .popup-btn,
+    .popup-close {
       border: none;
       text-decoration: none;
       cursor: pointer;
@@ -521,26 +696,31 @@
       text-align: center;
     }
 
-    .send-btn {
+    .send-btn,
+    .popup-btn {
       background: linear-gradient(135deg, var(--accent1), var(--accent2));
       color: white;
       flex: 1;
     }
 
-    .email-btn {
+    .email-btn,
+    .popup-close {
       background: #eef3f8;
       color: #17324d;
       flex: 1;
     }
 
-    .chat-note {
+    .chat-note,
+    .popup-note {
       margin-top: 12px;
       font-size: 13px;
       color: #5c6b77;
       line-height: 1.5;
     }
 
-    #formStatus {
+    #formStatus,
+    #leadStatus,
+    #popupStatus {
       margin-top: 10px;
       font-size: 14px;
       font-weight: bold;
@@ -594,6 +774,16 @@
       scroll-behavior: auto !important;
     }
 
+    @media (max-width: 900px) {
+      .lead-form {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
       .hero h1 {
         font-size: 40px;
@@ -632,7 +822,7 @@
       }
 
       .access-box {
-        bottom: 166px;
+        bottom: 240px;
       }
 
       .chat-toggle {
@@ -644,8 +834,28 @@
         right: 12px;
         bottom: 86px;
       }
+
+      .sticky-book-btn {
+        right: 12px;
+        bottom: 160px;
+        padding: 12px 16px;
+        font-size: 14px;
+      }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Koh Phangan Tours",
+    "url": "https://kohphangantours.com/",
+    "image": "https://raw.githubusercontent.com/productsbest59/Kohphangantours/6e99179066c54bd2092d1d3bb0108abb00a8aeea/4A0D7D68-16E9-4301-93D4-5569195DC8BC.png",
+    "email": "info@kohphangantours.com",
+    "description": "Koh Phangan tour discovery site featuring Full Moon Party trips, snorkeling adventures, island cruises and marine park experiences.",
+    "areaServed": "Koh Phangan, Thailand"
+  }
+  </script>
 </head>
 <body>
   <header>
@@ -653,9 +863,12 @@
       <a href="#home" class="logo">🌴 Koh Phangan Tours</a>
       <div class="nav-links">
         <a href="#home">Home</a>
+        <a href="#tours">Tours</a>
         <a href="#about">About Us</a>
         <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact" onclick="openChatFromMenu()">Contact</a>
+        <a href="#tours" class="nav-book">Book Now</a>
       </div>
     </nav>
   </header>
@@ -664,13 +877,19 @@
     <section class="hero" id="home">
       <img
         src="https://raw.githubusercontent.com/productsbest59/Kohphangantours/6e99179066c54bd2092d1d3bb0108abb00a8aeea/4A0D7D68-16E9-4301-93D4-5569195DC8BC.png"
-        alt="Thai women greeting"
+        alt="Thai women greeting visitors to Koh Phangan Tours"
         class="hero-image"
+        loading="eager"
       >
 
-      <h1>🌴 Koh Phangan Tours</h1>
-      <p>Discover the best boat trips, snorkeling adventures and island experiences</p>
       <div class="hero-badge">Top island tours • Easy booking • Amazing experiences</div>
+      <h1>🌴 Best Koh Phangan Tours & Island Experiences</h1>
+      <p>Discover boat trips, snorkeling adventures, sunset cruises and unforgettable Full Moon Party experiences</p>
+
+      <div class="hero-actions">
+        <a class="button" href="#tours">🔥 Explore Top Tours</a>
+        <button class="button-outline" type="button" onclick="toggleChat()">💬 Ask Before Booking</button>
+      </div>
 
       <div class="countdown-wrap">
         <h2>🌕 Countdown to Full Moon Party</h2>
@@ -695,16 +914,38 @@
         </div>
       </div>
 
+      <div class="trust-bar">
+        <div class="trust-item">✅ Easy booking links</div>
+        <div class="trust-item">🏝️ Best island experiences in one place</div>
+        <div class="trust-item">📩 Fast contact by email</div>
+      </div>
+
       <div class="ad-banner">
         <h3>This Ad Space Could Be Yours</h3>
         <p>
           Promote your business here and reach travelers looking for the best experiences<br>
-          For more info Mail to <b>info@kohphangantours.com</b>
+          For more info mail to <b>info@kohphangantours.com</b>
         </p>
       </div>
     </section>
 
-    <section>
+    <section class="lead-section">
+      <div class="lead-box">
+        <h3>Get Koh Phangan tour deals by email</h3>
+        <p>Leave your details and get updates about top island tours, seasonal offers and Full Moon Party experiences.</p>
+
+        <form class="lead-form" id="leadForm">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <button class="button" type="submit">Get Deals</button>
+        </form>
+
+        <div id="leadStatus"></div>
+        <div class="lead-note">Your details are only used to send tour-related updates.</div>
+      </div>
+    </section>
+
+    <section id="tours">
       <h2 class="section-title">Popular Tours</h2>
       <div class="grid">
         <div class="card">
@@ -713,7 +954,7 @@
             <h2>🚤 Full Moon Party Tour</h2>
             <p>Round-trip transfers and an easy way to experience the famous Full Moon Party.</p>
             <div class="price">Perfect for nightlife lovers</div>
-            <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">🔥 Check Price & Availability</a>
+            <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🔥 Check Price & Availability</a>
           </div>
         </div>
 
@@ -723,7 +964,7 @@
             <h2>🐠 Snorkeling Tour</h2>
             <p>Explore crystal-clear waters, coral reefs and hidden beaches around Koh Phangan.</p>
             <div class="price">Perfect for beach and sea lovers</div>
-            <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">🌊 See Available Dates</a>
+            <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌊 See Available Dates</a>
           </div>
         </div>
 
@@ -733,7 +974,7 @@
             <h2>🏝️ Ang Thong Marine Park</h2>
             <p>Kayaking, lagoons, epic viewpoints and a full-day adventure in paradise.</p>
             <div class="price">Top-rated island day trip</div>
-            <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-pha-ngan-day-tour-ang-thong-with-kayak-snorkel-lunch-t519403/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">✨ View Tour Details</a>
+            <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-pha-ngan-day-tour-ang-thong-with-kayak-snorkel-lunch-t519403/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">✨ View Tour Details</a>
           </div>
         </div>
 
@@ -743,7 +984,7 @@
             <h2>🛞 ATV Jungle Adventure</h2>
             <p>Ride off-road trails through jungle scenery, farmland and panoramic island viewpoints.</p>
             <div class="price">Great for adventure seekers</div>
-            <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">⚡ Explore This Adventure</a>
+            <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">⚡ Explore This Adventure</a>
           </div>
         </div>
 
@@ -753,7 +994,7 @@
             <h2>🌅 Sunset Catamaran Cruise</h2>
             <p>Enjoy snorkeling, paddle boarding and a colorful sunset cruise around Koh Phangan.</p>
             <div class="price">Best for couples and sunset lovers</div>
-            <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/koh-phangan-sunset-catamaran-cruise-with-snorkeling-t1098608/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">🌇 See Sunset Cruise</a>
+            <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/koh-phangan-sunset-catamaran-cruise-with-snorkeling-t1098608/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌇 See Sunset Cruise</a>
           </div>
         </div>
 
@@ -763,7 +1004,7 @@
             <h2>⛵ Koh Phangan Full-Day Cruise</h2>
             <p>Discover beaches, coves and reefs on a relaxing full-day island cruise with sunset views.</p>
             <div class="price">Relaxed all-day island experience</div>
-            <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-samui-koh-phangan-island-full-day-cruise-with-sunset-t387913/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer">🌴 View Full-Day Cruise</a>
+            <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-samui-koh-phangan-island-full-day-cruise-with-sunset-t387913/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌴 View Full-Day Cruise</a>
           </div>
         </div>
       </div>
@@ -791,7 +1032,7 @@
     <section id="reviews">
       <h2 class="section-title">Reviews</h2>
       <div class="reviews-note">
-        Sample reviews shown below are placeholder examples for layout purposes until real customer feedback is added.
+        Replace these sample reviews with real customer feedback as soon as you have it for stronger trust and better conversions.
       </div>
       <div class="reviews-grid">
         <div class="review-card">
@@ -826,6 +1067,30 @@
       </div>
     </section>
 
+    <section id="faq">
+      <h2 class="section-title">FAQ</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h3>Do I book directly on this website?</h3>
+          <p>
+            This website helps you discover tours and then continue to the booking provider using the links shown on each tour card.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>What tours are most popular in Koh Phangan?</h3>
+          <p>
+            Full Moon Party trips, snorkeling tours, sunset cruises, Ang Thong Marine Park day trips and ATV adventures are some of the most popular choices.
+          </p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I contact you before choosing a tour?</h3>
+          <p>
+            Yes. Use the contact form or email directly and ask about the best tour for couples, groups, party travelers or adventure lovers.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="content-box" style="text-align:center;">
@@ -845,8 +1110,30 @@
     </div>
   </div>
 
+  <a href="#tours" class="sticky-book-btn" aria-label="Book a tour now">🔥 Book Now</a>
   <button class="access-toggle" onclick="toggleAccess()" aria-label="Accessibility options">♿</button>
-  <button class="chat-toggle" onclick="toggleChat()" aria-label="Open chat">💬</button>
+  <button class="chat-toggle" onclick="toggleChat()" aria-label="Open contact form">💬</button>
+
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+  <div class="promo-popup" id="promoPopup" role="dialog" aria-label="Special offer popup">
+    <div class="promo-header">
+      <h3>🌴 Planning your Koh Phangan trip?</h3>
+      <p>Get island tour deals and Full Moon Party updates by email.</p>
+    </div>
+    <div class="promo-body">
+      <form id="popupLeadForm">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <div class="chat-actions">
+          <button class="popup-btn" type="submit">Get Tour Deals</button>
+          <button class="popup-close" type="button" onclick="closePopup()">Maybe Later</button>
+        </div>
+        <div id="popupStatus"></div>
+      </form>
+      <div class="popup-note">No spam. Only travel-related updates and offers.</div>
+    </div>
+  </div>
 
   <div class="access-box" id="accessBox">
     <div class="access-header">
@@ -949,6 +1236,18 @@
       localStorage.removeItem("reduce-motion");
     }
 
+    function openPopup() {
+      if (localStorage.getItem("promoClosed") === "true") return;
+      document.getElementById("promoPopup").classList.add("open");
+      document.getElementById("overlay").classList.add("open");
+    }
+
+    function closePopup() {
+      document.getElementById("promoPopup").classList.remove("open");
+      document.getElementById("overlay").classList.remove("open");
+      localStorage.setItem("promoClosed", "true");
+    }
+
     window.addEventListener("load", function () {
       if (localStorage.getItem("large-text") === "true") {
         document.body.classList.add("large-text");
@@ -962,18 +1261,20 @@
       if (localStorage.getItem("reduce-motion") === "true") {
         document.body.classList.add("reduce-motion");
       }
+
+      setTimeout(openPopup, 4000);
     });
 
-    const form = document.getElementById("contactForm");
-    const status = document.getElementById("formStatus");
+    const contactForm = document.getElementById("contactForm");
+    const formStatus = document.getElementById("formStatus");
 
-    form.addEventListener("submit", async function (e) {
+    contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      status.innerHTML = "Sending...";
-      status.style.color = "#17324d";
+      formStatus.innerHTML = "Sending...";
+      formStatus.style.color = "#17324d";
 
-      const data = new FormData(form);
+      const data = new FormData(contactForm);
 
       try {
         const response = await fetch("https://formspree.io/f/mwvrybyd", {
@@ -985,17 +1286,64 @@
         });
 
         if (response.ok) {
-          status.innerHTML = "✅ Message sent successfully!";
-          status.style.color = "green";
-          form.reset();
+          formStatus.innerHTML = "✅ Message sent successfully!";
+          formStatus.style.color = "green";
+          contactForm.reset();
         } else {
-          status.innerHTML = "❌ Something went wrong. Try again.";
-          status.style.color = "red";
+          formStatus.innerHTML = "❌ Something went wrong. Try again.";
+          formStatus.style.color = "red";
         }
       } catch (error) {
-        status.innerHTML = "❌ Network error. Try again.";
-        status.style.color = "red";
+        formStatus.innerHTML = "❌ Network error. Try again.";
+        formStatus.style.color = "red";
       }
+    });
+
+    async function submitLeadForm(formElement, statusElementId, closeAfterSuccess = false) {
+      const statusEl = document.getElementById(statusElementId);
+      statusEl.innerHTML = "Sending...";
+      statusEl.style.color = "#17324d";
+
+      const formData = new FormData(formElement);
+      formData.append("message", "Lead signup from Koh Phangan Tours");
+
+      try {
+        const response = await fetch("https://formspree.io/f/mwvrybyd", {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          statusEl.innerHTML = "✅ Thanks! Your details were received.";
+          statusEl.style.color = "green";
+          formElement.reset();
+
+          if (closeAfterSuccess) {
+            setTimeout(closePopup, 1200);
+          }
+        } else {
+          statusEl.innerHTML = "❌ Something went wrong. Try again.";
+          statusEl.style.color = "red";
+        }
+      } catch (error) {
+        statusEl.innerHTML = "❌ Network error. Try again.";
+        statusEl.style.color = "red";
+      }
+    }
+
+    const leadForm = document.getElementById("leadForm");
+    leadForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      await submitLeadForm(leadForm, "leadStatus");
+    });
+
+    const popupLeadForm = document.getElementById("popupLeadForm");
+    popupLeadForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      await submitLeadForm(popupLeadForm, "popupStatus", true);
     });
 
     const fullMoonDates = [
