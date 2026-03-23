@@ -35,9 +35,17 @@
       --accent2: #ff3d68;
       --dark1: #17324d;
       --dark2: #295b7a;
-      --white-card: rgba(255,255,255,0.95);
+      --white-card: rgba(255,255,255,0.96);
       --text-dark: #1d2b38;
       --muted: #4c5d6b;
+      --success1: #12b76a;
+      --success2: #1a9c58;
+      --soft-border: rgba(255,255,255,0.18);
+    }
+
+    *:focus-visible {
+      outline: 3px solid #ffd166;
+      outline-offset: 2px;
     }
 
     body {
@@ -154,14 +162,14 @@
       justify-content: center;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .countdown-wrap {
       max-width: 900px;
       margin: 30px auto 0;
       background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.68)),
         url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
@@ -216,10 +224,10 @@
     }
 
     .trust-bar {
-      max-width: 950px;
+      max-width: 980px;
       margin: 22px auto 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
@@ -265,6 +273,15 @@
       text-shadow: 0 2px 8px rgba(0,0,0,0.35);
     }
 
+    .section-subtitle {
+      max-width: 760px;
+      margin: -8px auto 24px;
+      text-align: center;
+      color: #eef6ff;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -284,6 +301,7 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
     }
 
     .card:hover {
@@ -292,33 +310,60 @@
     }
 
     .card-image {
-      height: 180px;
+      height: 200px;
       background-size: cover;
       background-position: center;
+      position: relative;
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: linear-gradient(135deg, var(--accent1), var(--accent2));
+      color: white;
+      font-size: 13px;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 999px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      z-index: 2;
     }
 
     .img-fullmoon {
-      background-image: url("https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=80");
+      background-image: url("https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1200&q=80");
     }
 
     .img-snorkel {
-      background-image: url("https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1200&q=80");
+      background-image: url("https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80");
     }
 
     .img-angthong {
-      background-image: url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80");
+      background-image: url("https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=1200&q=80");
     }
 
     .img-atv {
-      background-image: url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80");
+      background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80");
     }
 
     .img-sunset {
-      background-image: url("https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80");
+      background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
     }
 
     .img-cruise {
+      background-image: url("https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .img-firsttime {
       background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .img-sealovers {
+      background-image: url("https://images.unsplash.com/photo-1560275619-4662e36fa65c?auto=format&fit=crop&w=1200&q=80");
+    }
+
+    .img-adventure {
+      background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80");
     }
 
     .card-content {
@@ -358,12 +403,35 @@
       font-weight: bold;
       border: none;
       cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(255, 85, 85, 0.22);
     }
 
     .button:hover {
       transform: scale(1.03);
-      opacity: 0.95;
+      opacity: 0.96;
+      box-shadow: 0 14px 30px rgba(255, 85, 85, 0.28);
+    }
+
+    .button-success {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--success1), var(--success2));
+      color: white;
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 17px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 10px 24px rgba(18, 183, 106, 0.24);
+    }
+
+    .button-success:hover {
+      transform: scale(1.03);
+      opacity: 0.96;
+      box-shadow: 0 14px 30px rgba(18, 183, 106, 0.3);
     }
 
     .button-outline {
@@ -383,7 +451,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin-top: 10px;
+      margin-top: auto;
     }
 
     .content-box {
@@ -547,7 +615,7 @@
       padding: 14px 20px;
       font-size: 15px;
       font-weight: bold;
-      background: linear-gradient(135deg, #12b76a, #1a9c58);
+      background: linear-gradient(135deg, var(--success1), var(--success2));
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -829,7 +897,7 @@
       }
 
       .trust-bar {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
     }
 
@@ -921,6 +989,21 @@
         height: 21px;
       }
     }
+
+    @media (max-width: 520px) {
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -965,11 +1048,12 @@
 
       <div class="hero-badge">Top island tours • Easy booking • Amazing experiences</div>
       <h1>🌴 Best Koh Phangan Tours & Island Experiences</h1>
-      <p>Discover boat trips, snorkeling adventures, sunset cruises and unforgettable Full Moon Party experiences</p>
+      <p>Compare the most popular Koh Phangan boat trips, snorkeling tours, sunset cruises and Full Moon Party experiences in one place.</p>
 
       <div class="hero-actions">
         <a class="button" href="#tours">🔥 Explore Top Tours</a>
-        <a class="button-outline" href="https://www.viator.com/searchResults/all?text=koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare Tours on Viator</a>
+        <a class="button-success" href="https://www.viator.com/searchResults/all?text=koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+        <a class="button-outline" href="#best-experiences">⭐ Best-Selling Picks</a>
       </div>
 
       <div class="countdown-wrap">
@@ -997,7 +1081,8 @@
 
       <div class="trust-bar">
         <div class="trust-item">✅ Easy booking links</div>
-        <div class="trust-item">🏝️ Best island experiences in one place</div>
+        <div class="trust-item">🔥 Best-selling experiences</div>
+        <div class="trust-item">🏝️ Top island adventures</div>
         <div class="trust-item">📩 Fast contact by email</div>
       </div>
 
@@ -1028,81 +1113,95 @@
 
     <section id="tours">
       <h2 class="section-title">Popular Tours</h2>
+      <p class="section-subtitle">These are the tours most visitors look for first. Compare prices, check availability and pick the experience that fits your trip best.</p>
+
       <div class="grid">
         <div class="card">
-          <div class="card-image img-fullmoon"></div>
+          <div class="card-image img-fullmoon">
+            <div class="card-tag">Most Popular</div>
+          </div>
           <div class="card-content">
             <h2>🚤 Full Moon Party Tour</h2>
-            <p>Round-trip transfers and an easy way to experience the famous Full Moon Party.</p>
+            <p>Round-trip transfers and an easy way to experience the famous Full Moon Party with less hassle.</p>
             <div class="price">Perfect for nightlife lovers</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🔥 Check Price on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=full+moon+party+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/full-moon-party-koh-phangan-night-tour-t1090131/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🔥 Check Price Now</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=full+moon+party+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-snorkel"></div>
+          <div class="card-image img-snorkel">
+            <div class="card-tag">Sea Lovers</div>
+          </div>
           <div class="card-content">
             <h2>🐠 Snorkeling Tour</h2>
-            <p>Explore crystal-clear waters, coral reefs and hidden beaches around Koh Phangan.</p>
+            <p>Explore crystal-clear waters, coral reefs and hidden beaches around Koh Phangan and nearby islands.</p>
             <div class="price">Perfect for beach and sea lovers</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌊 See Dates on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=koh+tao+and+koh+nang+yuan+snorkel+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/surat-thani-province-l897/koh-phangan-traditional-boat-trip-with-snorkeling-and-beach-time-t1100237/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌊 See Dates & Prices</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=koh+tao+and+koh+nang+yuan+snorkel+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-angthong"></div>
+          <div class="card-image img-angthong">
+            <div class="card-tag">Top-Rated Day Trip</div>
+          </div>
           <div class="card-content">
             <h2>🏝️ Ang Thong Marine Park</h2>
-            <p>Kayaking, lagoons, epic viewpoints and a full-day adventure in paradise.</p>
-            <div class="price">Top-rated island day trip</div>
+            <p>Kayaking, lagoons, epic viewpoints and a full-day island adventure in one of the most scenic areas near Koh Phangan.</p>
+            <div class="price">Best for iconic views</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-pha-ngan-day-tour-ang-thong-with-kayak-snorkel-lunch-t519403/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">✨ View on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=ang+thong+marine+park+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-pha-ngan-day-tour-ang-thong-with-kayak-snorkel-lunch-t519403/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">✨ View Tour Details</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=ang+thong+marine+park+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-atv"></div>
+          <div class="card-image img-atv">
+            <div class="card-tag">Adventure</div>
+          </div>
           <div class="card-content">
             <h2>🛞 ATV Jungle Adventure</h2>
-            <p>Ride off-road trails through jungle scenery, farmland and panoramic island viewpoints.</p>
-            <div class="price">Great for adventure seekers</div>
+            <p>Ride off-road trails through jungle scenery, farmland and panoramic viewpoints for a more active island experience.</p>
+            <div class="price">Great for adrenaline seekers</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">⚡ Explore on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=atv+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/atv-jungle-adventure-experience-from-ko-pha-ngan-t516848/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">⚡ Explore Adventure</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=atv+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-sunset"></div>
+          <div class="card-image img-sunset">
+            <div class="card-tag">Couples Favorite</div>
+          </div>
           <div class="card-content">
             <h2>🌅 Sunset Catamaran Cruise</h2>
-            <p>Enjoy snorkeling, paddle boarding and a colorful sunset cruise around Koh Phangan.</p>
+            <p>Enjoy snorkeling, paddle boarding and a colorful sunset cruise around Koh Phangan for a more relaxed, premium feel.</p>
             <div class="price">Best for couples and sunset lovers</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/koh-phangan-sunset-catamaran-cruise-with-snorkeling-t1098608/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌇 See on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=koh+phangan+sunset+cruise&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/ko-phangan-l5038/koh-phangan-sunset-catamaran-cruise-with-snorkeling-t1098608/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌇 See Cruise Options</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=koh+phangan+sunset+cruise&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-cruise"></div>
+          <div class="card-image img-cruise">
+            <div class="card-tag">Relaxed Full Day</div>
+          </div>
           <div class="card-content">
             <h2>⛵ Full-Day Island Cruise</h2>
-            <p>Discover beaches, coves and reefs on a relaxing full-day island cruise with sunset views.</p>
-            <div class="price">Relaxed all-day island experience</div>
+            <p>Discover beaches, coves and reefs on a relaxing island cruise with sunset views and a full-day escape from the usual route.</p>
+            <div class="price">Great all-day island option</div>
             <div class="dual-buttons">
-              <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-samui-koh-phangan-island-full-day-cruise-with-sunset-t387913/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌴 View on GetYourGuide</a>
-              <a class="button" href="https://www.viator.com/searchResults/all?text=koh+phangan+full+day+cruise&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
+              <a class="button" href="https://www.getyourguide.com/ko-samui-l898/koh-samui-koh-phangan-island-full-day-cruise-with-sunset-t387913/?cmp=referral_GBNA3BC" target="_blank" rel="noopener noreferrer sponsored">🌴 See Full Details</a>
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=koh+phangan+full+day+cruise&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">💰 Compare on Viator</a>
             </div>
           </div>
         </div>
@@ -1111,6 +1210,8 @@
 
     <section id="viator-picks">
       <h2 class="section-title">Top Viator Picks</h2>
+      <p class="section-subtitle">Want more options fast? These Viator searches are built around the experiences travelers book most often in Koh Phangan.</p>
+
       <div class="content-box">
         <h3>Compare more top-rated Koh Phangan experiences</h3>
         <p>
@@ -1119,11 +1220,11 @@
         </p>
 
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:22px;">
-          <a class="button" href="https://www.viator.com/searchResults/all?text=ang+thong+marine+park+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🏝️ Ang Thong Marine Park</a>
-          <a class="button" href="https://www.viator.com/searchResults/all?text=koh+tao+and+koh+nang+yuan+snorkel+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🐠 Koh Tao & Nang Yuan Snorkeling</a>
-          <a class="button" href="https://www.viator.com/searchResults/all?text=atv+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🛞 ATV Jungle Adventure</a>
-          <a class="button" href="https://www.viator.com/searchResults/all?text=road+trip+around+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🚗 Koh Phangan Road Trip</a>
-          <a class="button" href="https://www.viator.com/searchResults/all?text=chantara+pirate+junk+boat+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🌅 Sunset Pirate Cruise</a>
+          <a class="button-success" href="https://www.viator.com/searchResults/all?text=ang+thong+marine+park+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🏝️ Ang Thong Marine Park</a>
+          <a class="button-success" href="https://www.viator.com/searchResults/all?text=koh+tao+and+koh+nang+yuan+snorkel+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🐠 Koh Tao & Nang Yuan Snorkeling</a>
+          <a class="button-success" href="https://www.viator.com/searchResults/all?text=atv+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🛞 ATV Jungle Adventure</a>
+          <a class="button-success" href="https://www.viator.com/searchResults/all?text=road+trip+around+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🚗 Koh Phangan Road Trip</a>
+          <a class="button-success" href="https://www.viator.com/searchResults/all?text=chantara+pirate+junk+boat+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🌅 Sunset Pirate Cruise</a>
           <a class="button" href="https://www.viator.com/searchResults/all?text=koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">✨ See All Viator Tours</a>
         </div>
       </div>
@@ -1131,34 +1232,48 @@
 
     <section id="best-experiences">
       <h2 class="section-title">Best Koh Phangan Experiences</h2>
+      <p class="section-subtitle">A stronger conversion section built for different traveler types, so visitors can quickly click the option that feels right for them.</p>
+
       <div class="grid">
         <div class="card">
-          <div class="card-image img-fullmoon"></div>
+          <div class="card-image img-firsttime">
+            <div class="card-tag">Best Seller</div>
+          </div>
           <div class="card-content">
             <h2>🎉 Best for First-Time Visitors</h2>
             <p>New to Koh Phangan? Start with the most popular tours and compare the top-rated island experiences in one place.</p>
             <div class="price">Easy choice for first-time travelers</div>
-            <a class="button" href="https://www.viator.com/searchResults/all?text=best+koh+phangan+tours&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">✨ View Top Tours</a>
+            <div class="dual-buttons">
+              <a class="button" href="https://www.viator.com/searchResults/all?text=best+koh+phangan+tours&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">✨ View Top Tours</a>
+            </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-snorkel"></div>
+          <div class="card-image img-sealovers">
+            <div class="card-tag">Sea & Snorkeling</div>
+          </div>
           <div class="card-content">
             <h2>🌊 Best for Sea Lovers</h2>
             <p>Snorkeling, hidden beaches, boat trips and crystal-clear water experiences around Koh Phangan and nearby islands.</p>
             <div class="price">Perfect for beach and ocean lovers</div>
-            <a class="button" href="https://www.viator.com/searchResults/all?text=snorkeling+boat+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🐠 Explore Sea Tours</a>
+            <div class="dual-buttons">
+              <a class="button-success" href="https://www.viator.com/searchResults/all?text=snorkeling+boat+tour+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">🐠 Explore Sea Tours</a>
+            </div>
           </div>
         </div>
 
         <div class="card">
-          <div class="card-image img-atv"></div>
+          <div class="card-image img-adventure">
+            <div class="card-tag">Action & Views</div>
+          </div>
           <div class="card-content">
             <h2>🔥 Best for Adventure</h2>
             <p>ATV rides, island road trips, viewpoints and active experiences for travelers who want more than just the beach.</p>
             <div class="price">Top pick for action and adventure</div>
-            <a class="button" href="https://www.viator.com/searchResults/all?text=adventure+tours+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">⚡ See Adventure Tours</a>
+            <div class="dual-buttons">
+              <a class="button" href="https://www.viator.com/searchResults/all?text=adventure+tours+koh+phangan&pid=P00293371&mcid=42383&medium=link&medium_version=selector" target="_blank" rel="noopener noreferrer sponsored">⚡ See Adventure Tours</a>
+            </div>
           </div>
         </div>
       </div>
@@ -1266,19 +1381,40 @@
   <button class="chat-toggle" onclick="toggleChat()" aria-label="Open contact form">💬</button>
 
   <div class="social-floating" aria-label="Social media links">
-    <a class="social-btn social-facebook" href="https://www.facebook.com/profile.php?id=61577433172838" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+    <a
+      class="social-btn social-facebook"
+      href="https://www.facebook.com/profile.php?id=61577433172838"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook"
+      title="Facebook"
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M22 12.07C22 6.51 17.52 2 12 2S2 6.51 2 12.07c0 5.02 3.66 9.18 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.09 0 2.23.2 2.23.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.89h2.77l-.44 2.9h-2.33V22c4.78-.75 8.44-4.91 8.44-9.93z"/>
       </svg>
     </a>
 
-    <a class="social-btn social-instagram" href="https://www.instagram.com/kohphangantours?igsh=MXZybmdmeTkzbWNvMw%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+    <a
+      class="social-btn social-instagram"
+      href="https://www.instagram.com/kohphangantours?igsh=MXZybmdmeTkzbWNvMw%3D%3D&utm_source=qr"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram"
+      title="Instagram"
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8z"/>
       </svg>
     </a>
 
-    <a class="social-btn social-tiktok" href="https://www.tiktok.com/@koh.phangan.tours?_r=1&_t=ZS-94sDybo9jJ2" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+    <a
+      class="social-btn social-tiktok"
+      href="https://www.tiktok.com/@koh.phangan.tours?_r=1&_t=ZS-94sDybo9jJ2"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="TikTok"
+      title="TikTok"
+    >
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M16.49 3c.39 1.9 1.52 3.34 3.51 4.02v2.63c-1.43-.05-2.72-.45-3.88-1.18v5.34c0 3.74-2.28 6.19-6.08 6.19-3.01 0-5.78-2.16-5.78-5.78 0-3.38 2.54-5.87 5.79-5.87.29 0 .58.02.87.08v2.86a3.5 3.5 0 0 0-.87-.11c-1.76 0-3.11 1.33-3.11 3.04 0 1.82 1.46 3.03 3.02 3.03 1.89 0 3.07-1.21 3.07-3.68V3h3.46z"/>
       </svg>
