@@ -1523,6 +1523,43 @@
     }
   }
 
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 99999;
+}
+
+.float-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.access-btn {
+  background: #2d9cdb;
+}
+
+.chat-btn {
+  background: linear-gradient(135deg, #ff6a3d, #ff3d68);
+}
+
+@media (max-width: 768px) {
+  .floating-buttons {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 15px;
+  }
+}
+
 </style>
  
 <script type="application/ld+json">
@@ -1580,9 +1617,7 @@
         <a class="header-icon-link" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3c.3 2.2 1.6 3.8 3.7 4.4.7.2 1.4.3 2.3.3V11a8.7 8.7 0 0 1-4.2-1.1v6.2a5.1 5.1 0 1 1-5.1-5.1c.3 0 .7 0 1 .1v3c-.3-.1-.6-.2-1-.2a2.1 2.1 0 1 0 2.1 2.1V3H14z"/></svg>
         </a>
-        <button class="header-icon-btn" type="button" onclick="toggleAccess()" aria-label="Accessibility">♿</button>
-        <button class="header-icon-btn" type="button" onclick="toggleChat()" aria-label="Chat">💬</button>
-      </div>
+</div>
 
     </div>
   </nav>
@@ -2471,6 +2506,12 @@
 
 
 
+
+
+<div class="floating-buttons">
+  <button onclick="toggleAccess()" class="float-btn access-btn" aria-label="Accessibility">♿</button>
+  <button onclick="toggleChat()" class="float-btn chat-btn" aria-label="Chat">💬</button>
+</div>
 
 </body>
 </html>
