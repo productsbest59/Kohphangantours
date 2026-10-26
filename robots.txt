@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kohphangantours.com/sitemap.xml
